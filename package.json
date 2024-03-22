@@ -1,0 +1,35 @@
+{
+  "name": "@background404/node-red-contrib-mcu-serial",
+  "version": "0.0.1",
+  "description": "Node to use serial communication with Node-RED MCU",
+  "main": "node/mcu_serial_in.js",
+  "scripts": {
+    "test": "mocha test/**/*_spec.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "node-red": {
+    "version": ">=1.3.7",
+    "nodes": {
+      "mcu_serial_in": "node/mcu_serial_in.js",
+      "mcu_serial_out": "node/mcu_serial_out.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/404background/node-red-contrib-mcu-serial.git"
+  },
+  "keywords": [
+    "node-red",
+    "node-red-mcu",
+    "moddable",
+    "Serial"
+  ],
+  "author": "@background404",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/404background/node-red-contrib-mcu-serial/issues"
+  },
+  "homepage": "https://github.com/404background/node-red-contrib-mcu-serial#readme"
+}
