@@ -1,12 +1,12 @@
 {
 	"modules": {
 		"*": [
-			"node/serial_in",
-            "node/serial_out"
+			"./node/serial_in",
+            		"./node/serial_out"
 		]
 	},
 	"preload": [
-		"node/serial_in",
-        "node/serial_out"
+		"serial_in",
+        	"serial_out"
 	]
 }
