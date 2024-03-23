@@ -5,18 +5,17 @@ class Serial_out extends Node {
 
 	onStart(config) {
 		super.onStart(config)
-		this.#serial = serial = new device.io.Serial({
+		this.#serial = new device.io.Serial({
             ...device.Serial.default,
             baud: Number(config.baud),
             port: Number(config.port),
             receive: Number(config.rx),
             transmit: Number(config.tx),
-            format: config.format,
 			onReadable: function (count) {
 				let  msg = {}
 				msg.payload = String.fromArrayBuffer(this.read())
 				msg.payload = msg.payload.trimEnd()
-				node.send(msg)
+				this.send(msg)
 			},
         })
 	}
@@ -24,7 +23,7 @@ class Serial_out extends Node {
         if (msg.payload != null){
             this.#serial.write(ArrayBuffer.fromString(msg.payload + "\n"))
         }
-        node.send(msg)
+        this.send(msg)
 		done()
 	}
 
