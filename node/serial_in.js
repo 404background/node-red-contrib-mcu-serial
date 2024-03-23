@@ -1,15 +1,9 @@
 import {Node} from "nodered"
-let cache
 
 class Serial_in extends Node {
-	#io
-
 	onStart(config) {
 		super.onStart(config)
-		cache ??= new Map
-		let io = cache.get(config.pin)
-
-        this.#io = io = new device.io.Serial({
+		let serial = new device.io.Serial({
             ...device.Serial.default,
             baud: Number(config.baud),
             port: Number(config.port),
