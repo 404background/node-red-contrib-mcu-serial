@@ -13,6 +13,7 @@ class Serial_out extends Node {
             transmit: Number(config.tx)
         })
 	}
+	
 	onMessage(msg, done) {
         if (msg.payload != null){
             this.#serial.write(ArrayBuffer.fromString(msg.payload + "\n"))

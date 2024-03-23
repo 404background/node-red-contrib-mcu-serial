@@ -8,16 +8,13 @@ class Serial_in extends Node {
             baud: Number(config.baud),
             port: Number(config.port),
             receive: Number(config.rx),
-            transmit: Number(config.tx)
+            transmit: Number(config.tx),
+			onReadable() {
+				let recv = String.fromArrayBuffer(this.read())
+				recv = recv.trimEnd()
+				reader.send(recv)
+			}
         })
-	}
-
-	onMessage(msg, done) {
-		let  msg = {}
-		msg.payload = String.fromArrayBuffer(this.read())
-		msg.payload = msg.payload.trimEnd()
-		this.send(msg)
-		done()
 	}
 
 	static type = "mcu_serial_in"
