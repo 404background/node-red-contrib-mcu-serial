@@ -10,13 +10,7 @@ class Serial_out extends Node {
             baud: Number(config.baud),
             port: Number(config.port),
             receive: Number(config.rx),
-            transmit: Number(config.tx),
-			onReadable: function (count) {
-				let  msg = {}
-				msg.payload = String.fromArrayBuffer(this.read())
-				msg.payload = msg.payload.trimEnd()
-				this.send(msg)
-			},
+            transmit: Number(config.tx)
         })
 	}
 	onMessage(msg, done) {
