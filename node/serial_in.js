@@ -1,24 +1,39 @@
 import {Node} from "nodered"
+let cache
 
 class Serial_in extends Node {
-	onMessage(msg) {
-        this.send(msg)
-	}
+	#serial
 
 	onStart(config) {
 		super.onStart(config)
 		const node = this
-		let serial = new device.io.Serial({
-            baud: Number(config.baud),
-            port: Number(config.port),
-            receive: Number(config.rx),
-            transmit: Number(config.tx),
-			onReadable() {
-				let msg = String.fromArrayBuffer(this.read())
-				msg = msg.trimEnd()
-				node.send({payload: msg})
+
+		cache ??= new Map
+		let serial = cache.get(config.port)
+
+		if (serial) {
+			this.#serial = serial
+		}
+		else {
+			try {
+				this.#serial = serial = new device.io.Serial({
+					baud: Number(config.baud),
+					port: Number(config.port),
+					receive: Number(config.rx),
+					transmit: Number(config.tx)
+				})
+				cache.set(config.port, serial)
 			}
-        })
+			catch {
+				this.status({fill: "red", shape: "dot", text: "node-red:common.status.error"})
+			}
+		}
+		
+		this.#serial.onReadable() = function() {
+			let msg = String.fromArrayBuffer(this.read())
+			msg = msg.trimEnd()
+			node.send({payload: msg})
+		}
 	}
 
 	static type = "mcu_serial_in"
