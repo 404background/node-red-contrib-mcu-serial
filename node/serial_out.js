@@ -6,7 +6,6 @@ class Serial_out extends Node {
 	onStart(config) {
 		super.onStart(config)
 		this.#serial = new device.io.Serial({
-            ...device.Serial.default,
             baud: Number(config.baud),
             port: Number(config.port),
             receive: Number(config.rx),
