@@ -1,0 +1,91 @@
+[
+    {
+        "id": "598955de860b59ba",
+        "type": "debug",
+        "z": "58bc2a165df872b0",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "_mcu": {
+            "mcu": true
+        },
+        "x": 380,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a4c6f2364a8b581c",
+        "type": "inject",
+        "z": "58bc2a165df872b0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "hello",
+        "payloadType": "str",
+        "_mcu": {
+            "mcu": true
+        },
+        "x": 230,
+        "y": 460,
+        "wires": [
+            [
+                "577a67bff0fbd98e"
+            ]
+        ]
+    },
+    {
+        "id": "6926b9e5124fc7fc",
+        "type": "mcu_serial_in",
+        "z": "58bc2a165df872b0",
+        "name": "",
+        "tx": "17",
+        "rx": "16",
+        "baud": "115200",
+        "port": "2",
+        "format": "baffer",
+        "_mcu": {
+            "mcu": true
+        },
+        "x": 230,
+        "y": 420,
+        "wires": [
+            [
+                "598955de860b59ba"
+            ]
+        ]
+    },
+    {
+        "id": "577a67bff0fbd98e",
+        "type": "mcu_serial_out",
+        "z": "58bc2a165df872b0",
+        "name": "",
+        "tx": "17",
+        "rx": "16",
+        "baud": "115200",
+        "port": "2",
+        "format": "baffer",
+        "_mcu": {
+            "mcu": true
+        },
+        "x": 380,
+        "y": 460,
+        "wires": []
+    }
+]

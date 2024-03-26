@@ -1,0 +1,129 @@
+[
+    {
+        "id": "ad93d27af3c0a436",
+        "type": "serial in",
+        "z": "a3eae82e71ef8e45",
+        "name": "",
+        "serial": "59a00bb27fd507c1",
+        "_mcu": {
+            "mcu": false
+        },
+        "x": 450,
+        "y": 100,
+        "wires": [
+            [
+                "bd9abfc532d235ec"
+            ]
+        ]
+    },
+    {
+        "id": "8878e847d338de56",
+        "type": "serial out",
+        "z": "a3eae82e71ef8e45",
+        "name": "",
+        "serial": "fcac9b56a758becd",
+        "_mcu": {
+            "mcu": false
+        },
+        "x": 630,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "bd9abfc532d235ec",
+        "type": "debug",
+        "z": "a3eae82e71ef8e45",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "_mcu": {
+            "mcu": false
+        },
+        "x": 620,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "80f69a64bc4a0bc2",
+        "type": "inject",
+        "z": "a3eae82e71ef8e45",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "hello",
+        "payloadType": "str",
+        "_mcu": {
+            "mcu": false
+        },
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "8878e847d338de56"
+            ]
+        ]
+    },
+    {
+        "id": "59a00bb27fd507c1",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "/dev/ttyUSB1",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000",
+        "_mcu": {
+            "mcu": false
+        }
+    },
+    {
+        "id": "fcac9b56a758becd",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "/dev/ttyUSB1",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000",
+        "_mcu": {
+            "mcu": false
+        }
+    }
+]
