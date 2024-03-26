@@ -1,4 +1,27 @@
 <script type="text/javascript">
+    RED.nodes.registerType('mcu_serial_in',{
+        category: 'MCU',
+        color: '#a2aaff',
+        defaults: {
+            name: {value:""},
+            tx: {value:"", required: true},
+            rx: {value:"", required: true},
+            baud: {value: "115200"},
+            port: {value: "", required: true},
+            format: {value: "baffer"}
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "serial.svg",
+		align: "left",
+        paletteLabel: 'Serial in',
+        label: function() {
+            return this.name||"serial in"
+        }
+    })
+</script>
+
+<script type="text/javascript">
     RED.nodes.registerType('mcu_serial_out',{
         category: 'MCU',
         color: '#a2aaff',
@@ -21,6 +44,22 @@
     })
 </script>
 
+
+<script type="text/html" data-template-name="mcu_serial_in">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name"><br>
+        <label for="node-input-tx"><i class="fa fa-tag"></i> TX</label>
+		<input type="number" id="node-input-tx" style="width:60px"><br>
+        <label for="node-input-rx"><i class="fa fa-tag"></i> RX</label>
+		<input type="number" id="node-input-rx" style="width:60px"><br>
+        <label for="node-input-port"><i class="fa fa-tag"></i> Port</label>
+		<input type="number" id="node-input-port" style="width:60px"><br>
+        <label for="node-input-baud"><i class="fa fa-tag"></i> Baud</label>
+		<input type="number" id="node-input-baud" style="width:100px"><br>
+    </div>
+</script>
+
 <script type="text/html" data-template-name="mcu_serial_out">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
@@ -34,6 +73,11 @@
         <label for="node-input-baud"><i class="fa fa-tag"></i> Baud</label>
 		<input type="number" id="node-input-baud" style="width:100px"><br>
     </div>
+</script>
+
+
+<script type="text/html" data-help-name="mcu_serial_in">
+
 </script>
 
 <script type="text/html" data-help-name="mcu_serial_out">

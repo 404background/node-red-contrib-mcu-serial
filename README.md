@@ -19,7 +19,7 @@ On Raspberry Pi 400
 
 ## Acknowledgements
 
-Thanks to [NW-Lab](https://github.com/NW-Lab) and [@mshioji](https://github.com/mshioji) for testing use of Serial with function node.  
+Thanks to [NW-Lab](https://github.com/NW-Lab) and [mshioji](https://github.com/mshioji) for testing use of Serial with function node.  
 
 [@NWLab](https://qiita.com/NWLab):「Node-RED MCUでFunction Nodeを使ったSerial通信をやってみる」  
 <https://qiita.com/NWLab/items/5360eff7b8e2685e925a>  
