@@ -4,18 +4,50 @@ Node to use serial communication with Node-RED MCU
 
 ## Overview
 
+With this node, you can use Serial communication of MCU.  
+There are two nodes, Serial in and Serial out.  
+![palette](./image/palette.png)
+
 ## How to use
+
+0. Build the environment for the Node-RED MCU plugin  
+1. Install this node  
+Add from the "Manage palette" in Node-RED or execute the following command.  
+
+```
+cd <directory of where package.json is located>  
+npm install <folder_path>  
+```
+
+2. Add the path of manifest.json to node_types.json  
+node_types.json is located in the directory:  
+".node-red/node_modules/@ralphwetzel/node-red-mcu-plugin/node-red-mcu"  
+On Raspberry Pi:  
+![node_types.json](./image/node_types.json.png)  
+
+3. Try to build with the Node-RED MCU plugin.
 
 ## Test case
 
 On Raspberry Pi 400  
 
-- Moddable Two(ESP32)
+- Moddable Two & ESP32
 - TX: 17
 - RX: 16
 - Port: 2
 - Baud: 115200
-- Format: baffer
+
+![node_edit](./image/node_edit.png)  
+
+Wiring:  
+![moddable_two](./image/sample_moddable_two.jpg)  
+![esp32](./image/sample_esp32.jpg)  
+
+Sample flows are in the examples folder.  
+Flow on MCU:  
+![flow_serial](./image/flow_serial.png)  
+Flow on Raspberry Pi:  
+![flow_serial_pc](./image/flow_serial_pc.png)  
 
 ## Acknowledgements
 
