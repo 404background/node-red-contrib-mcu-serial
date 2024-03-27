@@ -8,7 +8,15 @@
             rx: {value:"", required: true},
             baud: {value: "115200"},
             port: {value: "", required: true},
-            format: {value: "baffer"}
+            moddable_manifest: {
+                value: {
+                    include: [
+                        {
+                            "git": "https://github.com/404background/node-red-contrib-mcu-serial.git"
+                        }
+                    ]
+                }
+            }
         },
         inputs: 0,
         outputs: 1,
@@ -31,7 +39,15 @@
             rx: {value:"", required: true},
             baud: {value: "115200"},
             port: {value: "", required: true},
-            format: {value: "baffer"}
+            moddable_manifest: {
+                value: {
+                    include: [
+                        {
+                            "git": "https://github.com/404background/node-red-contrib-mcu-serial.git"
+                        }
+                    ]
+                }
+            }
         },
         inputs: 1,
         outputs: 0,
