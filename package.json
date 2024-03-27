@@ -1,6 +1,6 @@
 {
   "name": "@background404/node-red-contrib-mcu-serial",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Node to use serial communication with Node-RED MCU",
   "main": "node/mcu_serial_in.js",
   "scripts": {
