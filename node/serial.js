@@ -1,38 +1,45 @@
 import {Node} from "nodered"
 let cache
 
-class Serial_in extends Node {
-	#serial
+class Serial {
+	// static #cache = new Map;
 
+	static add(config, reader) {
+		const cachePort = 'mcu_serial' + Number(config.port);
+		cache ??= new Map;
+		let serial = cache.get(cachePort);
+		if (!serial) {
+			serial = new device.io.Serial({
+				baud: Number(config.baud),
+				port: Number(config.port),
+				receive: Number(config.rx),
+				transmit: Number(config.tx),
+				onReadable() {
+					let msg = String.fromArrayBuffer(this.read());
+					msg = msg.trimEnd()
+					this.readers.forEach(reader => {
+						reader.send({payload: msg})
+					});
+				}
+			})
+			cache.set(cachePort, serial)
+			serial.readers = [];
+		}
+		if (reader)
+			serial.readers.push(reader);
+		return serial;
+	}
+}
+
+class Serial_in extends Node {
 	onStart(config) {
 		super.onStart(config)
-		const node = this
-		const cachePort = 'mcu_serial' + Number(config.port)
 
-		cache ??= new Map
-		let serial = cache.get(cachePort)
-
-		if (serial) {
-			this.#serial = serial
+		try {
+			Serial.add(config, this);
 		}
-		else {
-			try {
-				this.#serial = serial = new device.io.Serial({
-					baud: Number(config.baud),
-					port: Number(config.port),
-					receive: Number(config.rx),
-					transmit: Number(config.tx),
-					onReadable() {
-						let msg = String.fromArrayBuffer(this.read())
-						msg = msg.trimEnd()
-						node.send({payload: msg})
-					}
-				})
-				cache.set(cachePort, serial)
-			}
-			catch {
-				this.status({fill: "red", shape: "dot", text: "node-red:common.status.error"})
-			}
+		catch {
+			this.status({fill: "red", shape: "dot", text: "node-red:common.status.error"})
 		}
 	}
 
@@ -48,41 +55,20 @@ class Serial_out extends Node {
 
 	onStart(config) {
 		super.onStart(config)
-		const node = this
-		const cachePort = 'mcu_serial' + Number(config.port)
 
-		cache ??= new Map
-		let serial = cache.get(cachePort)
-
-		if (serial) {
-			this.#serial = serial
+		try {
+			this.#serial = Serial.add(config);
 		}
-		else {
-			try {
-				this.#serial = serial = new device.io.Serial({
-					baud: Number(config.baud),
-					port: Number(config.port),
-					receive: Number(config.rx),
-					transmit: Number(config.tx),
-					onReadable() {
-						let msg = String.fromArrayBuffer(this.read())
-						msg = msg.trimEnd()
-						node.send({payload: msg})
-					}
-				})
-				cache.set(cachePort, serial)
-			}
-			catch {
-				this.status({fill: "red", shape: "dot", text: "node-red:common.status.error"})
-			}
+		catch {
+			this.status({fill: "red", shape: "dot", text: "node-red:common.status.error"})
 		}
 	}
 
 	onMessage(msg, done) {
-        if (msg.payload != null){
-            this.#serial.write(ArrayBuffer.fromString(msg.payload + "\n"))
-        }
-        this.send(msg)
+		if (msg.payload != null){
+			this.#serial.write(ArrayBuffer.fromString(msg.payload + "\n"))
+		}
+		this.send(msg)
 		done()
 	}
 
