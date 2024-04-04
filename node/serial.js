@@ -2,8 +2,6 @@ import {Node} from "nodered"
 let cache
 
 class Serial {
-	// static #cache = new Map;
-
 	static add(config, reader) {
 		const cachePort = 'mcu_serial' + Number(config.port);
 		cache ??= new Map;
