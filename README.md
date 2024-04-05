@@ -31,12 +31,19 @@ On Raspberry Pi:
 
 ## Test case
 
-On Raspberry Pi 400  
+On Raspberry Pi 400, Windows  
 
 - Moddable Two & ESP32
 - TX: 17
 - RX: 16
 - Port: 2
+- Baud: 115200
+
+ and  
+
+- TX: 32
+- RX: 33
+- Port: 1
 - Baud: 115200
 
 ![node_edit](./image/node_edit.png)  
@@ -50,6 +57,8 @@ Flow on MCU:
 ![flow_serial](./image/flow_serial.png)  
 Flow on Raspberry Pi:  
 ![flow_serial_pc](./image/flow_serial_pc.png)  
+Support for multiple node and port.  
+![flow_serial_multiple_port](./image/flow_serial_multiple_port.jpg)  
 
 ## Acknowledgements
 
