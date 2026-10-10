@@ -1,0 +1,36 @@
+<script type="text/html" data-help-name="mcu_serial_in">
+    <p>Receives text from a UART of the MCU (Node-RED MCU Edition only).</p>
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">string</span></dt>
+        <dd>One received line, without the line ending.</dd>
+    </dl>
+    <h3>Details</h3>
+    <p>Received data is split into lines at <code>\n</code>; a trailing <code>\r</code> and blank lines are dropped.
+       Text that does not end with a newline is sent after 100 ms without new data, and a line longer than 1024 characters is sent as it is.</p>
+    <h3>Properties</h3>
+    <dl class="message-properties">
+        <dt>Port</dt><dd>UART number (for example 1 or 2 on an ESP32).</dd>
+        <dt>TX pin / RX pin</dt><dd>GPIO numbers of the transmit and receive pins.</dd>
+        <dt>Baud</dt><dd>Baud rate, for example 115200.</dd>
+    </dl>
+    <p>Serial in and serial out nodes with the same port share one UART. They must use the same pins and baud rate;
+       a node whose settings differ reports an error and is not connected.</p>
+</script>
+
+<script type="text/html" data-help-name="mcu_serial_out">
+    <p>Sends <code>msg.payload</code> to a UART of the MCU (Node-RED MCU Edition only).</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">string | number | object | buffer</span></dt>
+        <dd>Strings and numbers are sent followed by <code>\n</code>; objects are sent as JSON followed by <code>\n</code>;
+            an <code>ArrayBuffer</code> or typed array (for example <code>Uint8Array</code>) is sent as raw bytes.</dd>
+    </dl>
+    <h3>Properties</h3>
+    <dl class="message-properties">
+        <dt>Port</dt><dd>UART number (for example 1 or 2 on an ESP32).</dd>
+        <dt>TX pin / RX pin</dt><dd>GPIO numbers of the transmit and receive pins.</dd>
+        <dt>Baud</dt><dd>Baud rate, for example 115200.</dd>
+    </dl>
+    <p>Serial in and serial out nodes with the same port share one UART and must use the same pins and baud rate.</p>
+</script>

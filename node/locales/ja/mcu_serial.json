@@ -1,0 +1,12 @@
+{
+    "mcu_serial": {
+        "label": {
+            "name": "名前",
+            "port": "ポート",
+            "tx": "TXピン",
+            "rx": "RXピン",
+            "baud": "ボーレート"
+        },
+        "tip": "Node-RED MCU専用です。同じポートの serial in / serial out ノードはポートを共有するため、ピンとボーレートを揃えてください。"
+    }
+}

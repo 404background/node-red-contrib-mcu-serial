@@ -1,0 +1,12 @@
+{
+    "mcu_serial": {
+        "label": {
+            "name": "Name",
+            "port": "Port",
+            "tx": "TX pin",
+            "rx": "RX pin",
+            "baud": "Baud"
+        },
+        "tip": "Runs on Node-RED MCU only. Serial in and serial out nodes on the same port share it and must use the same pins and baud rate."
+    }
+}
