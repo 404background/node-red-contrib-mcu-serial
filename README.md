@@ -20,7 +20,7 @@ npm install <folder_path>
 ```
 
 2. Add the path of manifest.json to node_types.json  
-(This step may not be necessary because moddable_manifest has been added to the HTML file.  
+(Usually not needed: node-red-mcu-plugin finds the manifest.json of this package.  
 If you have any problems, please report them to issue)  
 node_types.json is located in the directory:  
 ".node-red/node_modules/@ralphwetzel/node-red-mcu-plugin/node-red-mcu"  

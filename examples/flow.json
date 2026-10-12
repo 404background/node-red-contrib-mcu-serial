@@ -1,5 +1,15 @@
 [
     {
+        "id": "58bc2a165df872b0",
+        "type": "tab",
+        "label": "Serial loopback",
+        "disabled": false,
+        "info": "UART2 (TX 17, RX 16, 115200 baud).\nConnect it to the PC or Raspberry Pi serial port of flow_pc.json, or wire TX 17 to RX 16 to read back what is sent.\nThe inject button sends \"hello\"; received lines go to the debug node.",
+        "_mcu": {
+            "mcu": true
+        }
+    },
+    {
         "id": "598955de860b59ba",
         "type": "debug",
         "z": "58bc2a165df872b0",
@@ -59,7 +69,6 @@
         "rx": "16",
         "baud": "115200",
         "port": "2",
-        "format": "baffer",
         "_mcu": {
             "mcu": true
         },
@@ -80,7 +89,6 @@
         "rx": "16",
         "baud": "115200",
         "port": "2",
-        "format": "baffer",
         "_mcu": {
             "mcu": true
         },

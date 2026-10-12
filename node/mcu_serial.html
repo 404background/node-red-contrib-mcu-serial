@@ -10,16 +10,7 @@
                 tx: {value: "", required: true, validate: number},
                 rx: {value: "", required: true, validate: number},
                 baud: {value: "115200", required: true, validate: number},
-                port: {value: "", required: true, validate: number},
-                moddable_manifest: {
-                    value: {
-                        include: [
-                            {
-                                "git": "https://github.com/404background/node-red-contrib-mcu-serial.git"
-                            }
-                        ]
-                    }
-                }
+                port: {value: "", required: true, validate: number}
             };
         }
 
